@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>hw2-form-noam_raby.html</title>
+    <script>
+        let student = {
+            "privateName"   : "Noam",
+            "lastName"      : "Raby",
+            "address"       : "Tel Aviv",
+            "grades"        : [],
+
+            set addGrade(grade){
+                this.grades.push(grade);
+            },
+
+            get getGradesAverage(){
+                return this.grades.reduce((a, b) => a + b) / this.grades.length;
+            },
+
+            get toString() {
+                return `Full Name: ${this.privateName} ${this.lastName}
+Address: ${this.address}
+Grades: ${this.grades}
+Grades Average: ${this.getGradesAverage}`
+            }
+        };
+
+        student.addGrade = 100;
+        student.addGrade = 90;
+        student.addGrade = 80;
+        alert(student.toString);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

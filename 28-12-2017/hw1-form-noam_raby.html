@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>hw1-form-noam_raby.html</title>
+    <script>
+        var createUersInfoList = function() {
+            if (localStorage.length !== 0) {
+                window.localStorage.clear("usersInfoList");
+            }
+            var usersInfoList = [];
+            window.localStorage.setItem("usersInfoList", JSON.stringify(usersInfoList));
+            // console.log(localStorage.usersInfo);
+        };
+        window.onload=createUersInfoList()
+
+        var validateAndProcessForm = function(formInputs) {
+            if (formInputs.name.value && 
+                formInputs.age.value && 
+                formInputs.birthdaty.value && 
+                formInputs.favcolor.value) {
+                addFormDataToLocalStorage(formInputs);
+
+                return true;
+            } else {
+                alert("Please fill form");
+
+                return false;
+            }
+        };
+        
+        var addFormDataToLocalStorage = function(formInputs) {
+            var usersInfoList = JSON.parse(localStorage.getItem("usersInfoList"));
+            var usersInfo = {};
+            var name = "";
+            for (i=0; i<formInputs.length-1; i++) {
+                // console.log(formInputs[i].value);  
+                usersInfo[formInputs[i].id] = formInputs[i].value;
+                if (formInputs[i].id==="name") {
+                    name = formInputs[i].value;
+                }
+            }
+            usersInfoList.push(usersInfo)
+            window.localStorage.setItem("usersInfoList", JSON.stringify(usersInfoList));
+            console.log(localStorage);
+            
+            return displayUsers();
+        };
+
+        var displayUsers = function() {
+            var usersInfoList = JSON.parse(localStorage.getItem("usersInfoList"));
+            
+
+            var userList = document.createElement("ol");
+            for (var i = 0; i < usersInfoList.length; i++) {
+                var li = document.createElement("li");
+                var br = document.createElement("br");
+                var name = document.createTextNode("Name: " + usersInfoList[i].name);
+                var age = document.createTextNode(" Age: "+ usersInfoList[i].age);
+                var birthdaty = document.createTextNode(" Birthday: " + usersInfoList[i].birthdaty);
+                li.appendChild(name);
+                li.appendChild(age);
+                li.appendChild(birthdaty);
+                li.style.color = usersInfoList[i].favcolor;
+                console.log(li);
+                userList.append(li)
+            };
+
+            return document.getElementById("result").append(li);
+        };
+    </script>
+    <style type="text/css">
+        div {
+            margin-bottom: 1em;
+        }
+
+        input:invalid {
+          border: 1.5px solid red;
+        }
+    </style>
+</head>
+<body>
+    <form name="userInfo" action="#">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="Noam" required>
+        </div>
+        <div>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" value="10" required >
+        </div>
+        <div>
+            <label for="birthdaty">Birthdaty:</label>
+            <input id="birthdaty" type="date" name="birthdaty" value="1000-01-01" required>
+        </div>
+        <div>
+            <label for="favcolor">Favorite Color:</label>
+            <input id="favcolor" type="color" name="favcolor" value="#aaaaaa" required>
+        </div>
+        <div>
+            <input type="button" name="submit" value="Submit"
+            onClick="validateAndProcessForm(this.form.elements);"
+            >
+        </div>
+        <br/>
+        <div id="result"></div>
+    </form>
+</body>
+</html>
