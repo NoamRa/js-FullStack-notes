@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+</head>
+<body>
+    <button id="a1">a1</button>
+    <button id="a2">a2</button>
+    <button id="a3">a3</button>
+    <br />
+    <button id="b1">b1</button>
+    <button id="b2">b2</button>
+    <button id="b3">b3</button>
+
+    <script>
+            for (var i = 1; i <= 3; i++) {
+                var btn = document.getElementById("a" + i);
+                btn.addEventListener("click", function () {
+                    alert (i);
+                });
+            }
+        
+            for (var i = 1; i <= 3; i++) {
+                var btn = document.getElementById("b" + i);
+                btn.addEventListener("click", function (index) {
+                    return function () {
+                        alert(index);
+                    }
+                }(i));
+            }
+    </script>
+</body>
+</html>

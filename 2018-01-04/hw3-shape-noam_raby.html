@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>hw3-shape-noam_raby.html</title>
+</head>
+
+<body>
+    <svg id="draw"></svg>
+    <script>
+        function Shape(x = 50, y = 50, color = "#00ff00", w = 100, h = 10) {
+            this.distanceFromZero = () => Math.sqrt(x ** 2 + y ** 2);
+            this.toString = () => `x: ${x}, y: ${y}, color: ${color}`;
+            
+            this.drawRect = () => { // works only for rectangles...
+                let rect = document.createElementNS("http://www.w3.org/2000/svg", 'rect');
+                let svg = document.getElementById('draw');
+                rect.style.fill = color;
+                rect.setAttributeNS(null, "x", x)
+                rect.setAttributeNS(null, "y", y)
+                rect.setAttributeNS(null, "width", w)
+                rect.setAttributeNS(null, "height", h)
+                svg.appendChild(rect)
+                return svg;
+            };
+        };
+
+        let rect1 = new Shape(20, 60, "#ffff00");
+        console.log(rect1.distanceFromZero());
+        console.log(rect1.toString());
+
+        rect1.drawRect();
+    </script>
+</body>
+
+</html>
