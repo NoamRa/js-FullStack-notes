@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>hw3-color-input-noam_raby.html</title>
+    <script>
+        let handleColorChange = function(elements) {
+            console.log(elements.color.value);
+        }
+        
+    </script>
+</head>
+<body>
+    <form name="bolorbtn" action="#">
+        <div>
+            <input id="color" type="color" name="color" 
+            value="#aaaaaa" required
+            onChange="handleColorChange(this.form.elements);">
+        </div>
+    </form>
+</body>
+</html>
