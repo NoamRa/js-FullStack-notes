@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>hw4.2-computer_objects-noam_raby.html</title>
+</head>
+
+<body>
+    <script>
+        class Computer {
+            constructor(cpu, ram, storage, price, warranty) {
+                this.cpu = cpu;
+                this.ram = ram;
+                this.storage = storage;
+                this.price = price;
+                this.warranty = warranty;
+                Object.defineProperty(this, 'type', {
+                    value: this.__proto__.constructor.name,
+                    writable: false,
+                    enumerable: false
+                })
+            }
+            // computer properties setters and getters
+            set cpu(cpuModel) {
+                if (cpuModel && typeof cpuModel === "string")
+                    this._cpu = cpuModel;
+            }
+
+            get cpu() {
+                return this._cpu;
+            }
+
+            set ram(ramSize) {
+                if (ramSize && typeof ramSize === "number" && ramSize >= 4 && ramSize <= 16)
+                    this._ram = ramSize;
+            }
+
+            get ram() {
+                return this._ram;
+            }
+
+            set storage(storageSize) {
+                if (storageSize && typeof storageSize === "number" && storageSize >= 200 && storageSize <= 3000)
+                    this._storage = storageSize;
+            }
+
+            get storage() {
+                return this._storage;
+            }
+
+            set price(priceAmount) {
+                if (priceAmount && typeof priceAmount === "number" && priceAmount >= 800 && priceAmount <= 20000)
+                    this._price = priceAmount;
+            }
+
+            get price() {
+                return this._price;
+            }
+
+            set warranty(warrantyDuration) {
+                if (warrantyDuration && typeof warrantyDuration === "number" && warrantyDuration >= 0 && warrantyDuration <= 5)
+                    this._warranty = warrantyDuration;
+            }
+
+            get warranty() {
+                return this._warranty;
+            }
+
+            // methods
+            get print() {
+                let parts = this.type + " parts:"
+                for (let [k, v] of Object.entries(this)) {
+                    parts+=`\n${k.substr(1)} - ${v}`
+                };
+                return parts;
+            }
+
+            extraPurcheses() {return "You should buy headphones."}
+
+        }
+        
+        // let comp1 = new Computer("i7", 16, 512, 5000, 3)
+        // console.log(comp1.print)
+        // console.log(comp1.extraPurcheses())
+
+
+        class Desktop extends Computer {
+            constructor(cpu, ram, storage, price, warranty, 
+                mouseIsWireless, monitorSize) {
+                super(cpu, ram, storage, price, warranty);
+                this.mouseIsWireless = mouseIsWireless;
+                this.monitorSize = monitorSize;
+            }
+
+            set mouseIsWireless(mouse) {
+                if (mouse && typeof mouse === "boolean")
+                    this._mouse = mouse;
+            }
+
+            get mouseIsWireless() {
+                return this._warranty;
+            }
+
+
+            set monitorSize(size) {
+                if (size && typeof size === "number" && size >= 15 && size <= 50)
+                    this._monitorSize = size;
+            }
+
+            get monitorSize() {
+                return this._monitorSize;
+            }
+
+            extraPurcheses() {return "You should buy a table tor your new desktop."}
+
+        }
+
+        // let desktop1 = new Desktop("i9", 16, 1024, 9000, 5, true, 27);
+        // console.log(desktop1.print)
+        // console.log(desktop1.extraPurcheses())
+
+
+        class Laptop extends Computer {
+            constructor(cpu, ram, storage, price, warranty, 
+                chargeTime, batteryPercentage, hasTouchscreen) {
+                super(cpu, ram, storage, price, warranty);
+                this.chargeTime = chargeTime;
+                this.batteryPercentage = batteryPercentage;
+                this.hasTouchscreen = hasTouchscreen;
+            }
+
+            set chargeTime(time) {
+                if (time && typeof time === "number" && time >= 1 && time <= 9)
+                    this._chargeTime = time;
+            }
+
+            get chargeTime() {
+                return this._chargeTime;
+            }
+
+
+            set batteryPercentage(size) {
+                if (size && typeof size === "number" && size >= 0 && size <= 100)
+                    this._batteryPercentage = size;
+            }
+
+            get batteryPercentage() {
+                return this._batteryPercentage;
+            }
+
+            set hasTouchscreen(touch) {
+                if (touch && typeof touch === "boolean")
+                    this._hasTouchscreen = touch;
+            }
+
+            get hasTouchscreen() {
+                return this._hasTouchscreen;
+            }
+
+            extraPurcheses() {
+                return Computer.prototype.extraPurcheses.call(this) + "\nYou should buy a case tor your new laptop.";
+            }
+
+            fullyCharged() {
+                this.batteryPercentage = 100
+                return `The battery is at ${this.batteryPercentage}%`
+            }
+
+        }
+
+        // let laptop1 = new Laptop("i5", 8, 256, 4000, 3, 4, 95, false);
+        // console.log(laptop1.print)
+        // console.log(laptop1.extraPurcheses())
+        // console.log(laptop1.fullyCharged())
+
+        let executeActions = function(n){
+            if (n % 2 === 0) {
+                let objName = 'laptop' + n;
+                console.log(objName, ":")
+                objName = new Laptop("i5", 2*(n+1), 2**(n+1), 2000*(n+1), 3, 1.5*(n+1), 15*(n+1), false);
+                console.log(objName.print)
+                console.log(objName.extraPurcheses())
+                console.log(objName.fullyCharged())
+                console.log("\n");
+
+            } else {
+                let objName = 'desktop' + n;
+                console.log(objName, ":")
+                objName = new Desktop("i9", 2*(n+1), 2**(n+1), 2000*(n+1), 5, true, 27);
+                console.log(objName.print)
+                console.log(objName.extraPurcheses())
+                console.log("\n");
+            }
+        }
+
+        for (let n=0; n<10; n++){
+            executeActions(n);
+        }
+
+    </script>
+</body>
+
+</html>
