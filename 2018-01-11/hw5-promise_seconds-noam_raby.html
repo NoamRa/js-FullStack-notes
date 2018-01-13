@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>hw5-promise_date-noam_raby.html</title>
+</head>
+
+<body>
+    <script>
+        getSec = () => {
+            let currentSeconds = new Date().getSeconds();
+            console.log("currentSeconds:", currentSeconds);
+            return currentSeconds;
+        }
+
+        isEven = (n) => n % 2 === 0 ? true : false
+
+        promiseMaker = () => new Promise(function(resolve, reject) {
+            isEven(getSec()) ? resolve("even") : reject("odd")
+        })
+
+        processResolve = (outcome) => console.log(`${outcome} - done :)`);
+        processReject = (outcome) => {
+            console.log(`${outcome} - Trying again :(`)
+            return setTimeout(() => 
+                    promiseMaker().then(processResolve).catch(processReject), 
+                    1000)
+        }
+
+        promiseMaker().then(processResolve).catch(processReject)
+
+    </script>
+</body>
+
+</html>
