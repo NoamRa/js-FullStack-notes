@@ -1,0 +1,17 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "description": "_Template",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "noamr",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^9.3.0",
+    "@types/readline-sync": "^1.4.2",
+    "readline-sync": "^1.4.7",
+    "require": "^2.4.20"
+  }
+}
