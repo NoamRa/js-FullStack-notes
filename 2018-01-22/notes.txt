@@ -1,0 +1,6 @@
+notes.txt
+
+ruby installer
+gem install sass
+cd folder
+sass --watch style.scss:style.css
