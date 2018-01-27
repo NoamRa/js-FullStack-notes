@@ -1,0 +1,18 @@
+.table {
+  width: 100%; 
+  border-collapse: collapse;
+  align:center;
+}
+
+.row {
+  display: table-row;
+  align:center;
+}
+
+.cell {
+  display: table-cell;
+  align:center;
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: left;
+}
