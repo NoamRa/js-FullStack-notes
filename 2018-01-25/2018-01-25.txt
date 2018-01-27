@@ -1,0 +1,6 @@
+2018-01-25.txt
+
+ng g c Dog
+
+short for
+ng generate componenet Dog (PascalCasing)
