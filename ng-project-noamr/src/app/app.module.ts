@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MulTableComponent } from './mul-table/mul-table.component';
+import { PeopleInfoComponent } from './people-info/people-info.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MulTableComponent
+    MulTableComponent,
+    PeopleInfoComponent
   ],
   imports: [
     BrowserModule
