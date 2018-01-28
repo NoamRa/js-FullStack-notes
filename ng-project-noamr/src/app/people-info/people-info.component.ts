@@ -11,6 +11,8 @@ export class PeopleInfoComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  title = "People Info Component"
   arr:[
         {
         id:number, 

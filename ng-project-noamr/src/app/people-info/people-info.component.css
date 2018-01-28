@@ -1,17 +1,11 @@
 .people-list {
-    text-align: left;
+  text-align: left;
 }
 
-ol {
-    text-align: left;
-    padding-left:0; 
-    list-style-position:inside;
-    list-style-type: armenian;
-
+ol li:first-child {
+  list-style-type: disc;
 }
 
-li {
-    text-align: left;
-    list-style-type: none;
-
+ol li {
+  list-style-type: none;
 }
