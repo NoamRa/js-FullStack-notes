@@ -1,0 +1,18 @@
+<h3>Our menu:</h3>
+<div class="divTable">
+  <div class="divTableBody">
+    <div class="divTableRow">
+      <div class="divTableCell"><b>Diameter</b></div>
+      <div class="divTableCell"><b>Slices</b></div>
+      <div class="divTableCell"><b>Toppings</b></div>
+      <div class="divTableCell"><b>Price</b></div>
+    </div>
+    <div class="divTableRow" *ngFor="let p of pizzas">
+      <div class="divTableCell">{{p.sDiameter()}}</div>
+      <div class="divTableCell">{{p.sSlices()}}</div>
+      <div class="divTableCell">{{p.sToppings()}}</div>
+      <div class="divTableCell">{{p.sPrice()}}</div>
+    </div>
+  </div>
+</div>
+

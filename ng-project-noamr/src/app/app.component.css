@@ -1,0 +1,30 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.page {
+    padding: 0 0 50px 0;
+    min-height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    text-align: center;
+    background-color: #fefaf9;
+    text-align:center;
+}
+
+header {
+    height: 50px;
+    line-height: 50px;
+    border: 0 solid black;
+}
+
+footer {
+    height: 50px;
+    line-height: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border: 0 solid black;
+}
