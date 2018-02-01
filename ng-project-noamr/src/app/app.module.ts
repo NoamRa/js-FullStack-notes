@@ -18,7 +18,7 @@ import { TextTrimmerPipe } from './shared/pipes/text-trimmer.pipe';
     PeopleInfoComponent,
     HeaderComponent,
     FooterComponent,
-    PizzaListComponent
+    PizzaListComponent,
     TextTrimmerPipe
   ],
   imports: [
