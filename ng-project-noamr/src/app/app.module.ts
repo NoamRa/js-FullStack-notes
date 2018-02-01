@@ -9,8 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { PizzaListComponent } from './pizza-list/pizza-list.component';
 import { PizzaService } from './shared/services/pizza-service.service';
-
-
+import { TextTrimmerPipe } from './shared/pipes/text-trimmer.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +19,7 @@ import { PizzaService } from './shared/services/pizza-service.service';
     HeaderComponent,
     FooterComponent,
     PizzaListComponent
+    TextTrimmerPipe
   ],
   imports: [
     BrowserModule
