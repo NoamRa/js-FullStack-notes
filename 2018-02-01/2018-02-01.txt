@@ -1,0 +1,19 @@
+2018-02-01.txt
+
+angular 4
+
+binding - 
+
+one way binding from .ts to .html --
+{{}} -
+[style] - <span [style.font-size.px]>blabla</span>
+
+one way binding from .html to .ts --
+button - (click)="handleClick()"
+
+two way binding --
+input - form content is coming from ts and user input changes ts
+[(ngModel)]="fontSize"
+* requires adding to 'app.module.ts':
+import { FormsModule } from '@angular/forms';
+and then add to imports list
