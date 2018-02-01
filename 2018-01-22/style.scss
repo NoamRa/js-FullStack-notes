@@ -1,62 +1,75 @@
+/*
+sass task - noam raby
+populate 9 li elements as a two colored grid
+*/
 
-@mixin clearfix {
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
+$evenColor: #d7bde2;
+$oddColor: black;
+$gridLength: 3;
+$width:100% / 3;
+
+body {
+  padding: 10px;
+}
+
+@mixin dflt-ul-style {
+  // default lu style
+  border-radius: $width/2;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 50%;
+  overflow: hidden;
+  padding: 0;
+}
+
+@mixin dflt-li-style {
+  // default li style
+  border: 2px solid white;
+  flex-grow: 1;
+  font-size: 5em;
+  line-height: 8rem;
+  list-style: none;
+  margin: -5px;
+  padding: 2% 0;
+  text-align: center;
+  vertical-align: middle;
+  width: $width;
+}
+
+@mixin li-color($odd-or-even) {
+  // set text and bg colors
+  @if $odd-or-even=="odd" {
+    color: $oddColor;
+    background-color: $evenColor;
+  }
+  @if $odd-or-even=="even" {
+    color: $evenColor;
+    background-color: $oddColor;
   }
 }
 
-$gridLength: 3;
-$oddColor: black;
-$evenColor: green;
-
-
-
 ul {
-    display: grid;
-    grid-template-columns: repeat($gridLength, 5em);
-    grid-template-rows: repeat($gridLength, 5em);
-    border-radius: 5;
-}
+  @include dflt-ul-style;
 
-ul > * {
-    border: 1px solid white;
-    border-width: 0 1px 1px 0;
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-}
+  li {
+    @include dflt-li-style;
 
-ul > *:nth-of-type(3n)  {
-    border-right-width: 0;
-}
-
-ul > *:nth-of-type(n+7) {
-    border-bottom-width: 0;
-}
-
-body {
-  counter-reset: n;
-}
-
-li::before {
-  counter-increment: n;
-  content: counter(n);
-}
-
-@mixin li-content {
-    list-style-type: none;
-    $start: 1;
-    $gridSize: $gridLength * $gridLength;
-    @for $i from 1 to  $gridSize{
-        @if( $i % 2 != 0 ) {
-            background: $evenColor;
-        }
+    &:nth-child(odd) {
+      @include li-color("odd");
     }
-}
 
-li {
-    @include li-content    
-}
+    &:nth-child(even) {
+      @include li-color("even");
+    }
 
+    $gridSize: $gridLength * $gridLength;
+    @for $i from 1 through $gridSize+1 {
+      &:nth-child(#{$i}) {
+        &:before {
+          content: "" + $i;
+        }
+      }
+    }
+  }
+}
