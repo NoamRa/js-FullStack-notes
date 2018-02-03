@@ -14,9 +14,9 @@ export class RegisterFormComponent implements OnInit {
   constructor(private countryService:CountryService) { }
 
 
-  ngOnInit(func:(x:Array<any)) {
-    let func=(Array<any>)=>(undefined)
-    this.countryService.getCountries(func:(Array<any>)=>(undefined));
+  ngOnInit() {
+    let func=(res:Array<any>)=>(this.countryList=res);
+    this.countryService.getCountries(func);
   }
 
 }

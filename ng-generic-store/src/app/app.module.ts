@@ -1,16 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-
 import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { CountryService } from './shared/services/country.service';
 import { FooterComponent } from './footer/footer.component';
+import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { MainSectionComponent } from './main-section/main-section.component';
+import { HttpClientModule } from '@angular/common/http';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { MainSectionComponent } from './main-section/main-section.component';
+import { NgModule } from '@angular/core';
 import { RegisterFormComponent } from './register-form/register-form.component';
-import { CountryService } from './shared/services/country.service';
 
 @NgModule({
   declarations: [
@@ -18,8 +17,8 @@ import { CountryService } from './shared/services/country.service';
     FooterComponent,
     HeaderComponent,
     HomeComponent,
-    MainSectionComponent,
     LoginFormComponent,
+    MainSectionComponent,
     RegisterFormComponent
   ],
 

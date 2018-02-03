@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
-
-  title="";
-  onLoginOrRgisterEmit(str:string):void{
-      this.title=str;
+  loginOrRegister="";
+  
+  onLoginOrRegister(str:string):void{
+    this.loginOrRegister=str;
   }
 
 }

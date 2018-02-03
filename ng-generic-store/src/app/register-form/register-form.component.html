@@ -1,6 +1,29 @@
 <form>
-    <input [(ngModel)]="newUser.firstName" type="" name="firstName">
-    <input [(ngModel)]="newUser.lastName" type="" name="lastName">
-    <input [(ngModel)]="newUser.age" type="" name="age">
-    <input [(ngModel)]="newUser.country" type="" name="country">
+    <input [(ngModel)]="newUser.firstName" 
+            type="text" name="firstName"
+            placeholder="First name">
+    
+    <input [(ngModel)]="newUser.lastName" 
+            type="text" name="lastName"
+            placeholder="Last name">
+    
+    <input [(ngModel)]="newUser.age" 
+            type="number" name="age"
+            placeholder="Age">
+    
+    <select [(ngModel)]="newUser.country" 
+            type="" name="country">
+
+        <option *ngFor="let c of countryList" name="countries" id="c.name"
+            style="background-image:url({{c.flag}})" class="flag">
+            {{c.name}}
+        </option>
+    </select>
 </form>
+
+<!-- <div *ngIf="countryList">
+    <h1>Country list:</h1>
+    <p *ngFor="let x of countryList">
+        {{x.name}} <img src={{x.flag}}/>
+    </p>    
+</div> -->
