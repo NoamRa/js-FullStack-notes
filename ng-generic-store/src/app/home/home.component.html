@@ -1,3 +1,6 @@
 <div>
-  home works!
+    <h2>Welcome to {{myStore.name}} store</h2>
+    <img [src]="myStore.mainImage" />
+    <div>{{myStore.address.localInfo()}}</div>
+    <app-country-info [country]="myStore.address"></app-country-info>
 </div>

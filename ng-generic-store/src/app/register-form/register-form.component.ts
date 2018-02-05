@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Register } from '../shared/models/register.model';
 import { CountryService } from '../shared/services/country.service';
+import { CountryBasic } from '../shared/models/countryBasic.model'
+
  
 @Component({
   selector: 'app-register-form',
@@ -17,6 +19,10 @@ export class RegisterFormComponent implements OnInit {
   ngOnInit() {
     let func=(res:Array<any>)=>(this.countryList=res);
     this.countryService.getCountries(func);
+    
+    this.countryService.getCountries2().subscribe(
+      (res:CountryBasic[])=> {this.countryList=res}
+      );
   }
 
 }

@@ -10,6 +10,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { MainSectionComponent } from './main-section/main-section.component';
 import { NgModule } from '@angular/core';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { CountryInfoComponent } from './country-info/country-info.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RegisterFormComponent } from './register-form/register-form.component';
     HomeComponent,
     LoginFormComponent,
     MainSectionComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    CountryInfoComponent
   ],
 
   imports: [
