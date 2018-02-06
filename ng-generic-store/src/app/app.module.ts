@@ -1,6 +1,7 @@
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { CountryService } from './shared/services/country.service';
+import { BooksService } from './shared/services/books.service';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
@@ -31,7 +32,8 @@ import { CountryInfoComponent } from './country-info/country-info.component';
   ],
 
   providers: [
-    CountryService
+    CountryService,
+    BooksService
   ],
 
   bootstrap: [AppComponent]

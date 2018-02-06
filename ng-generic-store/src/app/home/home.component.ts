@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 
         Object.assign(this.myStore.address, {
             flag: "https://restcountries.eu/data/isr.svg", 
-            name: "Israel"
+            name: "Israel",
             cityName: "Tel-Aviv",
             roadName: "Nope",
             houseNumber: 123,

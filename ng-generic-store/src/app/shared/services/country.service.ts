@@ -9,12 +9,9 @@ export class CountryService {
 
     countryApi = "https://restcountries.eu/rest/v2/all"
     qParams = "fields=name;flag"
-    getCountries(func: (x: Array<any>) => void):void {
-        this.httpClient.get(`${this.countryApi}?${this.qParams}`)
-        .subscribe(func)
-    }    
 
-    getCountries2():Observable<CountryBasic[]> {
+    getCountries():Observable<CountryBasic[]> {
+        console.log(`sent request to: ${this.countryApi}?${this.qParams}`);
         return this.httpClient.get<CountryBasic[]>(`${this.countryApi}?${this.qParams}`);
     }
 }
