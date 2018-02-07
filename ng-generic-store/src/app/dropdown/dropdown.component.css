@@ -1,0 +1,52 @@
+div.dropdown-control {
+  border: 1px solid silver;
+  padding: 0.3rem;
+  position: relative;
+  min-height: 2rem;
+  vertical-align: middle;
+  line-height: 2rem;
+}
+
+.dropdown-control img {
+  width: 2rem;
+  position: absolute;
+  top: 0.6rem;
+  right: 3rem;
+}
+
+div.dropdown-control span {
+  cursor: pointer;
+  position: absolute;
+  top: 6px;
+  right: 8px;
+}
+
+ul.dropdown {
+  list-style: none;
+  padding-left: 0;
+  height: 20rem;
+  overflow: auto;
+}
+
+ul.dropdown li {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 1px solid silver;
+  padding: 0.3rem;
+}
+
+ul.dropdown li div img {
+  width: 2rem;
+}
+
+.dropdown-selected {
+  border: 1px solid silver;
+  padding: 0.3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown-selected img {
+  width: 2rem;
+}

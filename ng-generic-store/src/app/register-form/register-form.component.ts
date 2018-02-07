@@ -18,7 +18,7 @@ export class RegisterFormComponent implements OnInit {
   constructor(private countryService:CountryService) { }
 
   ngOnInit() {
-    this.countryService.getCountries().subscribe(
+    this.countryService.getCountriesAndFlags().subscribe(
       (res:CountryBasic[])=> {this.countryList=res}
     );
   }

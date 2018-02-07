@@ -2,30 +2,5 @@
   <input [(ngModel)]="newUser.firstName" type="text" name="firstName" placeholder="First name">
   <input [(ngModel)]="newUser.lastName" type="text" name="lastName" placeholder="Last name">
   <input [(ngModel)]="newUser.age" type="number" name="age" placeholder="Age">
-  <div>
-    <label>Countries:</label>
-    <ul>
-      <li *ngFor="let x of countryList">
-        <app-country-info [country]="x"></app-country-info>
-      </li>
-    </ul>
-  </div>
+  <app-dropdown (selectedCountry)="selectCountry($event)"></app-dropdown>
 </form>
-
-
-<!-- <div *ngIf="countryList">
-    <h1>Country list:</h1>
-    <p *ngFor="let x of countryList">
-        {{x.name}} <img src={{x.flag}}/>
-    </p>    
-</div> -->
-
-
-<!--     <select [(ngModel)]="newUser.country" 
-            type="" name="country">
-
-        <option *ngFor="let c of countryList" name="countries" id="c.name"
-            style="background-image:url({{c.flag}})" class="flag">
-            {{c.name}}
-        </option>
-    </select> -->

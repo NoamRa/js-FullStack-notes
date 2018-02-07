@@ -12,6 +12,8 @@ import { MainSectionComponent } from './main-section/main-section.component';
 import { NgModule } from '@angular/core';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { CountryInfoComponent } from './country-info/country-info.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
+import { HoverDirective } from './shared/directives/hover.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { CountryInfoComponent } from './country-info/country-info.component';
     LoginFormComponent,
     MainSectionComponent,
     RegisterFormComponent,
-    CountryInfoComponent
+    CountryInfoComponent,
+    DropdownComponent,
+    HoverDirective
   ],
 
   imports: [
