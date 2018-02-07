@@ -1,0 +1,25 @@
+<div class="product-preview">
+    <img src="{{book.volumeInfo.imageLinks.smallThumbnail}}"
+         class=product-img>
+    <div class=product-info>
+        <div class="product-data">
+            <b>{{book.volumeInfo.title}}</b>
+        </div>
+        <div *ngIf="book.volumeInfo.authors?.length === 1" class="product-data">
+            Author: {{book.volumeInfo.authors}}
+        </div>
+        <div *ngIf="book.volumeInfo.authors?.length > 1" class="product-data">
+            Author: {{book.volumeInfo.authors}}
+        </div>
+        <div *ngIf="book.volumeInfo.publisher" class="product-data">
+            Publisher: {{book.volumeInfo.publisher}}
+        </div>
+            <div *ngIf="book.volumeInfo.publishedDate" class="product-data">
+            Published: {{book.volumeInfo.publishedDate}}
+        </div>
+            <div *ngIf="book.volumeInfo.pageCount" class="product-data">
+            {{book.volumeInfo.pageCount}} pages
+        </div>
+        <!-- description: {{book.volumeInfo.description}} -->
+    </div>
+</div>

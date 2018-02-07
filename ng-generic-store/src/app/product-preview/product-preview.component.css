@@ -1,0 +1,21 @@
+.product-preview {
+    width: 20em;
+    /*border: 0 solid black;*/
+    /*border-width: 1px;*/
+    padding: 10px;
+}
+
+.product-img {
+    float:left;
+    max-height: 200px;
+}
+
+.product-info {
+    text-align: left;
+    padding-left: 140px;
+    min-height: 200px;
+}
+
+.product-data {
+    
+}

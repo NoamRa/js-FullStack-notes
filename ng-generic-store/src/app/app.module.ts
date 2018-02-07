@@ -14,6 +14,8 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { CountryInfoComponent } from './country-info/country-info.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { HoverDirective } from './shared/directives/hover.directive';
+import { ProductsComponent } from './products/products.component';
+import { ProductPreviewComponent } from './product-preview/product-preview.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { HoverDirective } from './shared/directives/hover.directive';
     RegisterFormComponent,
     CountryInfoComponent,
     DropdownComponent,
-    HoverDirective
+    HoverDirective,
+    ProductsComponent,
+    ProductPreviewComponent
   ],
 
   imports: [

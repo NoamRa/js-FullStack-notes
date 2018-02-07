@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { BooksService } from '../shared/services/books.service';
-import { Book } from '../shared/models/book.model'
-
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-main-section',
@@ -9,16 +6,6 @@ import { Book } from '../shared/models/book.model'
   styleUrls: ['./main-section.component.css']
 })
 
-export class MainSectionComponent implements OnInit {
-
-  bookList:Book[];
-
-  constructor(private booksService:BooksService) { }
-
-  ngOnInit() {
-    this.booksService.getBooks().subscribe(
-      (res)=> {this.bookList=res.items}
-    );
-  }
+export class MainSectionComponent {
 
 }

@@ -2,15 +2,15 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
+    box-sizing: border-box;
 }
-
+/*
 #page {
     padding: 0 0 50px 0;
     min-height: 100%;
-    box-sizing: border-box;
     position: relative;
     text-align: center;
-}
+}*/
 
 header {
     height: 100px;
@@ -18,11 +18,14 @@ header {
     border: 0 solid black;
 }
 
+main {
+    min-height: 100%;
+  padding: 20px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
 footer {
-    height: 20px;
-    line-height: 20px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    border: 0 solid black;
+  height: 50px;
+  margin-top: -50px;
 }

@@ -1,0 +1,7 @@
+<div *ngIf="bookList?.length">
+    <ul *ngFor="let book of bookList">
+        <li class="product-preview">
+            <app-product-preview [book]="book"></app-product-preview>
+        </li>
+    </ul>
+</div>

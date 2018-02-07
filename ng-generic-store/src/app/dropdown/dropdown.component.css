@@ -5,6 +5,7 @@ div.dropdown-control {
   min-height: 2rem;
   vertical-align: middle;
   line-height: 2rem;
+  max-width: 170px;
 }
 
 .dropdown-control img {
@@ -33,7 +34,8 @@ ul.dropdown li {
   justify-content: space-between;
   flex-wrap: wrap;
   border: 1px solid silver;
-  padding: 0.3rem;
+  /*padding: 0.3rem;*/
+  max-width: 170px;
 }
 
 ul.dropdown li div img {
