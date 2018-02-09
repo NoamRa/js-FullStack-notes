@@ -16,6 +16,14 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { HoverDirective } from './shared/directives/hover.directive';
 import { ProductsComponent } from './products/products.component';
 import { ProductPreviewComponent } from './product-preview/product-preview.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AccountComponent } from './account/account.component';
+
+
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from '';
 
 @NgModule({
   declarations: [
@@ -30,13 +38,19 @@ import { ProductPreviewComponent } from './product-preview/product-preview.compo
     DropdownComponent,
     HoverDirective,
     ProductsComponent,
-    ProductPreviewComponent
+    ProductPreviewComponent,
+    ProductDetailsComponent,
+    ProductListComponent,
+    PageNotFoundComponent,
+    AccountComponent
   ],
 
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    AppRoutingModule
   ],
 
   providers: [

@@ -25,4 +25,5 @@ export class BooksService {
       // console.log(`sent request to: ${this.googleBooksApi}?${this.qParamsStr}`)
       return this.httpClient.get<any>(`${this.googleBooksApi}?${this.qParamsStr}`);
     }
+
 }

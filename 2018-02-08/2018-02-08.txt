@@ -1,0 +1,5 @@
+1 add product design
+3 add pipe to limit book length to 18 chars
+4 directive to fill default price to 100 ils 
+
+5* currency by country

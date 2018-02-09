@@ -1,5 +1,4 @@
 export class Book {
-    
       volumeInfo:{
         title:string,
         authors: string[],

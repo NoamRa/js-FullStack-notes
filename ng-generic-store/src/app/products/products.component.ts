@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../shared/services/books.service';
 import { Book } from '../shared/models/book.model'
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,6 +20,10 @@ export class ProductsComponent implements OnInit {
     this.booksService.getBooks().subscribe(
       (res)=> {this.bookList=res.items}
     );
+  }
+
+  showFullDetails(i:number) {
+    this.router.navigate([`/products/${i}`])
   }
 
 }

@@ -4,3 +4,10 @@
 <button (click)="onLoginClick()">Login</button>
 <button (click)="onRegisterClick()">Register</button>
 
+<nav>
+    <batton><a routerLink="/home">Home</a></batton>
+    <batton><a routerLink="/account">My Account</a></batton>
+    <batton><a routerLink="/products">Products</a></batton>
+    <batton *ngIf="userInfo.fullName !== 'Guest'"><a routerLink="/cart">Cart</a></batton>
+
+</nav>
