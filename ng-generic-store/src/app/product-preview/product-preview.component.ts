@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Book } from '../shared/models/book.model'
+import { ProductPriceDirective } from '../shared/directives/price.directive';
 
 @Component({
   selector: 'app-product-preview',

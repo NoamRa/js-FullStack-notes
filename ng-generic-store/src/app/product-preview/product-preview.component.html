@@ -3,7 +3,7 @@
          class=product-img>
     <div class=product-info>
         <div class="product-data">
-            <b>{{book.volumeInfo.title}}</b>
+            <b>{{book.volumeInfo.title | textTrimmer:18 }}</b>
         </div>
         <div *ngIf="book.volumeInfo.authors?.length === 1" class="product-data">
             Author: {{book.volumeInfo.authors}}
@@ -20,6 +20,9 @@
             <div *ngIf="book.volumeInfo.pageCount" class="product-data">
             {{book.volumeInfo.pageCount}} pages
         </div>
-        <!-- description: {{book.volumeInfo.description}} -->
-    </div>
+        <div app-product-price 
+            [currency]="book.volumeInfo?.price"
+            [price]="book.volumeInfo?.currency" >
+            Price:
+        </div>
 </div>

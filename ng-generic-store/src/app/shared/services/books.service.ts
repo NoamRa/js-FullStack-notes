@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 import { apiKeys } from '../global-config/apiKeys';
-import { Book } from '../models/book.model';
+import { Book, BookRootObj, BookList} from '../models/book.model';
 
 
 
@@ -21,9 +22,11 @@ export class BooksService {
     .map((key, i) => `${key}=${encodeURIComponent(this.qParams[key])}`)
     .join('&')
 
-    getBooks():Observable<any> {
-      // console.log(`sent request to: ${this.googleBooksApi}?${this.qParamsStr}`)
-      return this.httpClient.get<any>(`${this.googleBooksApi}?${this.qParamsStr}`);
+    getBookList():Observable<BookRootObj> {
+      let reqString:string = `${this.googleBooksApi}?${this.qParamsStr}`;
+      // console.log(`sending request to: reqString);
+      return this.httpClient.get<BookRootObj>(reqString);
+
     }
 
 }

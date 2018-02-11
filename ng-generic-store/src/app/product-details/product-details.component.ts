@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from '../shared/models/book.model';
+import { Book, BookList } from '../shared/models/book.model';
 import { BooksService } from '../shared/services/books.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -10,23 +10,22 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProductDetailsComponent implements OnInit {
 
+  
+  book: BookList;
 
-  book: Book;
-
-  constructor(private productService: BooksService,
+  constructor(private aBookService: BooksService,
               private route: ActivatedRoute,
               private router: Router) { }
 
   ngOnInit() {
-      this.route.params.subscribe(params => 
-          this.book = this.productService.getBooks())
-          // this.book = this.productService.getBooks(params.id))
+    // this.route.params.subscribe(params => 
+    //   this.aBookService.getBookList(params.id)
+    //     .subscribe((x)=>{this.book=x;}));
+    this.route.params.subscribe(params => 
+      this.aBookService.getBookList()
+        .subscribe((res)=>{this.book=res.items;}));
   }
   
-  getBookInfo(i:number):Book {
-      return this.getBooks()[i];
-  }
-
   goBack(): void {
       this.router.navigate(["/products"])
   }

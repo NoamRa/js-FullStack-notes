@@ -12,7 +12,6 @@ import { Address } from '../shared/models/address.model';
 export class HomeComponent implements OnInit {
 
     myStore: StoreInfo;
-    // country: CountryBasic;
 
     ngOnInit() {
         this.myStore = new StoreInfo();
