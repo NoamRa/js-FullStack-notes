@@ -1,13 +1,9 @@
-<img [src] = "userInfo.avatarUrl"/>
-<span>hello, {{userInfo.fullName}}</span>
-
-<button (click)="onLoginClick()">Login</button>
-<button (click)="onRegisterClick()">Register</button>
-
 <nav>
     <button><a routerLink="/home">Home</a></button>
     <button><a routerLink="/account">My Account</a></button>
     <button><a routerLink="/products">Products</a></button>
     <button *ngIf="userInfo.fullName !== 'Guest'"><a routerLink="/cart">Cart</a></button>
-
 </nav>
+
+<img [src] = "userInfo.avatarUrl"/>
+<span>hello, {{userInfo.fullName}}</span>

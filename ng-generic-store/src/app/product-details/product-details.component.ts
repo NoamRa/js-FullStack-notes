@@ -10,20 +10,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  
-  book: BookList;
+  book: Book;
 
   constructor(private aBookService: BooksService,
               private route: ActivatedRoute,
               private router: Router) { }
 
   ngOnInit() {
-    // this.route.params.subscribe(params => 
-    //   this.aBookService.getBookList(params.id)
-    //     .subscribe((x)=>{this.book=x;}));
-    this.route.params.subscribe(params => 
-      this.aBookService.getBookList()
-        .subscribe((res)=>{this.book=res.items;}));
+    this.route.params
+      .subscribe(prms => 
+        this.aBookService.getBookList()
+          .subscribe((res)=>{this.book=res.items[prms.pid]})
+      )
   }
   
   goBack(): void {

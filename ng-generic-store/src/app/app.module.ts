@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+// routing
+import { AppRoutingModule } from './app-routing.module';
 
 // service providers
 import { CountryService } from './shared/services/country.service';
@@ -18,19 +20,16 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { HoverDirective } from './shared/directives/hover.directive';
-import { ProductPriceDirective } from './shared/directives/price.directive';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { MainSectionComponent } from './main-section/main-section.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductPreviewComponent } from './product-preview/product-preview.component';
+import { ProductPriceDirective } from './shared/directives/price.directive';
 import { ProductsComponent } from './products/products.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { TextTrimmerPipe } from './shared/pipes/text-trimmer.pipe';
-
-
-import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [

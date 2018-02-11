@@ -26,7 +26,6 @@ export class BooksService {
       let reqString:string = `${this.googleBooksApi}?${this.qParamsStr}`;
       // console.log(`sending request to: reqString);
       return this.httpClient.get<BookRootObj>(reqString);
-
     }
 
 }

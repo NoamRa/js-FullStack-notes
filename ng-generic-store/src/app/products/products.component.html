@@ -1,8 +1,10 @@
 <div *ngIf="bookList?.length">
-    <ul *ngFor="let book of bookList; index as i">
+    <ul *ngFor="let book of bookList; index as pid">
         <li class="product-preview">
             <app-product-preview [book]="book"></app-product-preview>
-            <button (click)="showFullDetails(i)">Show Full Details</button>
+            <button (click)="showFullDetails(pid)">
+                Show Full Details of book {{pid}}
+            </button>
         </li>
     </ul>
 </div>

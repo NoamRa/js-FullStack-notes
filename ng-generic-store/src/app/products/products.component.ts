@@ -14,17 +14,17 @@ export class ProductsComponent implements OnInit {
 
   bookList: BookList;
 
-  constructor(private booksService:BooksService,
+  constructor(private abooksService:BooksService,
               private router: Router) { }
 
   ngOnInit() {
-    this.booksService.getBookList().subscribe(
-      (res)=> {this.bookList=res.items}
+    this.abooksService.getBookList().subscribe(
+      (res) => this.bookList=res.items
     );
   }
 
-  showFullDetails(i:number) {
-    this.router.navigate([`/products/${i}`])
+  showFullDetails(pid:number) {
+    this.router.navigate([`/products/${pid}`]);
   }
 
 }
