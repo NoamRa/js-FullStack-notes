@@ -1,5 +1,6 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { User } from '../shared/models/user.model';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { AccountService } from '../shared/services/account.service';
+import { User } from '../shared/models/account-models/index';
 
 @Component({
   selector: 'app-header',
@@ -21,5 +22,13 @@ export class HeaderComponent {
     onLoginClick():void{
         this.onLogin.emit("login");
         console.log("login was clicked");
+    }
+
+
+
+    constructor(private accountService:AccountService){}
+
+    ngOnInit(){
+
     }
 }

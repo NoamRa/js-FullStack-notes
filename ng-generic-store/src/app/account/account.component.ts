@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User, Register, Login } from '../shared/models/account-models/index';
 
 @Component({
   selector: 'app-account',

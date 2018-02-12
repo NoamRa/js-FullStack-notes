@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Register } from '../shared/models/register.model';
+import { User, Register, Login } from '../shared/models/account-models/index';
 import { CountryService } from '../shared/services/country.service';
 import { CountryBasic } from '../shared/models/countryBasic.model'
 

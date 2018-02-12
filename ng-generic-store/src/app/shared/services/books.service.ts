@@ -12,10 +12,11 @@ export class BooksService {
     constructor(private httpClient: HttpClient){}
 
     googleBooksApi = "https://www.googleapis.com/books/v1/volumes"
+    query = "a"
     qParams = {
-      q: "a",
+      q: this.query,
       maxResults: 40,
-      fields: "items(saleInfo/listPrice,volumeInfo(authors,description,imageLinks(smallThumbnail,thumbnail),language,mainCategory,pageCount,publishedDate,publisher,subtitle,title))",
+      // fields: "items(saleInfo/listPrice,volumeInfo(authors,description,imageLinks(smallThumbnail,thumbnail),language,mainCategory,pageCount,publishedDate,publisher,subtitle,title))",
       key: apiKeys.google
     }
     qParamsStr = Object.keys(this.qParams)
@@ -28,4 +29,10 @@ export class BooksService {
       return this.httpClient.get<BookRootObj>(reqString);
     }
 
+    getBookListQuery(query: string = "a"):Observable<BookRootObj> {
+      this.qParams.q = query;
+      let reqString = `${this.googleBooksApi}?${this.qParamsStr}`;
+      console.log(`sending request to: ${reqString}`);
+      return this.httpClient.get<BookRootObj>(reqString);
+    }
 }

@@ -1,3 +1,10 @@
+
+<label for="bookFilter">Seatch Book:</label>
+<input type="" name="bookFilter" #bookFilterInput>
+<button (click)=searchBooks(bookFilterInput.value)>Search Book</button>
+<h3 *ngIf="bookFilterInput?.value">Book Filter: {{bookFilterInput.value}} </h3>
+
+
 <div *ngIf="bookList?.length">
     <ul *ngFor="let book of bookList; index as pid">
         <li class="product-preview">

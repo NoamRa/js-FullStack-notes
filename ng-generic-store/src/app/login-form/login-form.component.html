@@ -1,1 +1,9 @@
-<div>login goes here</div>
+<button (click)=changeUser()"">Log In</button>
+<form novalidate [formGroup]="loginForm" (ngSubmit)="addProduct()">
+    <div>
+        <input type="" name="userName" fromControlName="userName" placeholder="name">
+    </div>
+    <div>
+        <input type="" name="userPassword" fromControlName="userPassword" placeholder="password">
+    </div>
+</form>

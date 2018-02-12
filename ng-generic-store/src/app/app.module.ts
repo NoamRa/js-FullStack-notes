@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 // service providers
 import { CountryService } from './shared/services/country.service';
 import { BooksService } from './shared/services/books.service';
+import { AccountService } from './shared/services/account.service';
 
 // container declarations
 import { AccountComponent } from './account/account.component';
@@ -62,6 +63,7 @@ import { TextTrimmerPipe } from './shared/pipes/text-trimmer.pipe';
   ],
 
   providers: [
+    AccountService,
     BooksService,
     CountryService,
   ],
