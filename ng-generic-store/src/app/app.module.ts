@@ -1,6 +1,6 @@
 // angular imports
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -31,6 +31,7 @@ import { ProductPriceDirective } from './shared/directives/price.directive';
 import { ProductsComponent } from './products/products.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { TextTrimmerPipe } from './shared/pipes/text-trimmer.pipe';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -52,12 +53,14 @@ import { TextTrimmerPipe } from './shared/pipes/text-trimmer.pipe';
     RegisterFormComponent,
     TextTrimmerPipe,
     ProductPriceDirective,
+    ErrorComponent,
   ],
 
   imports: [
     AppRoutingModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
   ],

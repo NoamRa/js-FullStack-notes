@@ -1,26 +1,28 @@
 import { User } from './user.model';
 import { ValidConfig } from '../../validators/validConfig.model';
 import { ValidatorFn, AbstractControl } from '@angular/forms';
-import { Consts } from '../../global-config/const'
+import { appConsts } from '../../global-config/consts'
 
-export class Login extends User {
+export class Login {
 
-  constructor(public userName:string="nameOfUser", 
-              public userPassword:string="......") {
-    super();
+  constructor(public userName:string, 
+              public userPassword:string) {
   }
 
   static get userNameValidators(): ValidatorFn[] {
     return [
-      ValidConfig.minLength(Consts.MIN_CHARS_USER_NAME),
+      ValidConfig.required("User name"),
+      ValidConfig.minLength(appConsts.MIN_CHARS_USER_NAME, "User name"),
+      ValidConfig.maxLength(appConsts.MAX_CHARS_USER_NAME, "User name")
 
     ]
   }
 
-
   static get userPasswordValidators(): ValidatorFn[] {
     return [
-      ValidConfig.minLength(Consts.MIN_CHARS_USER_PASSWORD),
+      ValidConfig.required("Password"),
+      ValidConfig.minLength(appConsts.MIN_CHARS_USER_PASSWORD, "Password"),
+      ValidConfig.maxLength(appConsts.MAX_CHARS_USER_PASSWORD, "Password")
 
     ]
   }

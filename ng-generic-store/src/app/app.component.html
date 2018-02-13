@@ -8,7 +8,7 @@
     <div [ngSwitch]="loginOrRegister">
       <app-login-form *ngSwitchCase="'login'"></app-login-form>
       <app-register-form *ngSwitchCase="'register'"></app-register-form>
-      <app-home *ngSwitchDefault></app-home>
+      <app-main-section *ngSwitchDefault></app-main-section>
     </div>
   </main>
   <footer>

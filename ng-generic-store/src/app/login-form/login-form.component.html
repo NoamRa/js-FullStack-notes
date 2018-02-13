@@ -1,9 +1,18 @@
-<button (click)=changeUser()"">Log In</button>
-<form novalidate [formGroup]="loginForm" (ngSubmit)="addProduct()">
+<!-- <button (click)=changeUser()"">Log In</button>
+ -->
+<form novalidate [formGroup]="loginForm" (ngSubmit)="changeUser()">
     <div>
-        <input type="" name="userName" fromControlName="userName" placeholder="name">
+        <input type="text" name="userName" 
+                formControlName="userNameCtrl" placeholder="name">
+        <app-error [controlParam]="loginForm.controls['userNameCtrl']"></app-error>
     </div>
     <div>
-        <input type="" name="userPassword" fromControlName="userPassword" placeholder="password">
+        <input type="password" name="userPassword" 
+                formControlName="userPasswordCtrl" placeholder="password">
+        <app-error [controlParam]="loginForm.controls['userPasswordCtrl']"></app-error>
+    </div>
+    <div>
+        <input type="submit" value="Login" 
+                [disabled]="!loginForm.valid" />     
     </div>
 </form>

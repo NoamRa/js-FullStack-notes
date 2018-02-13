@@ -1,8 +1,8 @@
-export static readonly Consts = {
+export const appConsts = {
     MIN_CHARS_USER_NAME:3,
     MAX_CHARS_USER_NAME:15,
     MIN_CHARS_USER_PASSWORD:6,
     MAX_CHARS_USER_PASSWORD:20,
-    MAX_CHARS_USER_NAME:15,
+    // MAX_CHARS_USER_NAME:15,
 
 }
