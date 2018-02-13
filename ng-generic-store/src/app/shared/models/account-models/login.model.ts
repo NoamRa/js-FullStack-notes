@@ -13,7 +13,8 @@ export class Login {
     return [
       ValidConfig.required("User name"),
       ValidConfig.minLength(appConsts.MIN_CHARS_USER_NAME, "User name"),
-      ValidConfig.maxLength(appConsts.MAX_CHARS_USER_NAME, "User name")
+      ValidConfig.maxLength(appConsts.MAX_CHARS_USER_NAME, "User name"),
+      ValidConfig.onlyEnglish("User name"),
 
     ]
   }
@@ -22,7 +23,8 @@ export class Login {
     return [
       ValidConfig.required("Password"),
       ValidConfig.minLength(appConsts.MIN_CHARS_USER_PASSWORD, "Password"),
-      ValidConfig.maxLength(appConsts.MAX_CHARS_USER_PASSWORD, "Password")
+      ValidConfig.maxLength(appConsts.MAX_CHARS_USER_PASSWORD, "Password"),
+      ValidConfig.onlyEnglishNumbersStar("Password")
 
     ]
   }
