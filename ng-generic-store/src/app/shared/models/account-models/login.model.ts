@@ -15,7 +15,6 @@ export class Login {
       ValidConfig.minLength(appConsts.MIN_CHARS_USER_NAME, "User name"),
       ValidConfig.maxLength(appConsts.MAX_CHARS_USER_NAME, "User name"),
       ValidConfig.onlyEnglish("User name"),
-
     ]
   }
 

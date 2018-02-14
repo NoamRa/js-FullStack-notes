@@ -1,6 +1,53 @@
-<form *ngIf="countryList?.length">
-  <input [(ngModel)]="newUser.firstName" type="text" name="firstName" placeholder="First name">
-  <input [(ngModel)]="newUser.lastName" type="text" name="lastName" placeholder="Last name">
-  <input [(ngModel)]="newUser.age" type="number" name="age" placeholder="Age">
-  <app-dropdown (selectedCountry)="selectCountry($event)"></app-dropdown>
+<form *ngIf="countryList?.length" novalidate [formGroup]="registerForm" (ngSubmit)="registerUser()">
+  <div>
+    <input type="text" name="firstName" 
+            placeholder="First name"
+            formControlName="userFirstNameCtrl">
+    <app-error [controlParam]="registerForm.controls['userFirstNameCtrl']"></app-error>
+  </div>
+  <div>
+    <input type="text" name="lastName" 
+            placeholder="Last name"
+            formControlName="userLastNameCtrl">
+    <app-error [controlParam]="registerForm.controls['userLastNameCtrl']"></app-error>
+  </div>
+  <div>
+    <input type="text" name="userName" 
+            formControlName="userNameCtrl" 
+            placeholder="desired user name">
+    <app-error [controlParam]="registerForm.controls['userNameCtrl']"></app-error>
+  </div>
+
+  <div>
+    <input type="number" name="age" placeholder="Age">
+    <!-- <app-error [controlParam]="registerForm.controls['  ']"></app-error> -->
+  </div>
+  <div>
+    <input type="password" name="password" 
+            placeholder="password"
+            formControlName="userPasswordCtrl" >
+    <app-error [controlParam]="registerForm.controls['userPasswordCtrl']"></app-error>
+  </div>
+
+  <!-- <app-dropdown (selectedCountry)="selectCountry($event)"></app-dropdown> -->
+
+
+  <!-- <div *ngIf="countryList?.length">
+    <div class="dropdown">
+      <p>Country:</p>
+      <button (click)="setCountryMode()">     
+          <app-country-info [country]="selectedCountry"></app-country-info>
+      </button>
+      <ul *ngIf="selectCountryMode">
+        <li *ngFor="let x of countryList">
+            <app-country-info [country]="x" (onSelectCountry)="setUserCountry($event)"></app-country-info>
+        </li>
+      </ul>
+    </div>
+  </div> -->
+
+  <div>   
+    <input type="submit" value="Register" 
+      [disabled]="!registerForm.valid" />     
+  </div>
 </form>

@@ -23,7 +23,6 @@ export class LoginFormComponent implements OnInit {
         userNameCtrl: ['', Login.userNameValidators ],
         userPasswordCtrl: ['', Login.userPasswordValidators ],
     })
-
   }
 
   ngOnInit() {

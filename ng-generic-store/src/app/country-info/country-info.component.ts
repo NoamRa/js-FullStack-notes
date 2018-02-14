@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import { CountryBasic } from '../shared/models/countryBasic.model'
 import { viewState } from '../shared/global-config/encapsulation'
 
@@ -10,10 +10,15 @@ import { viewState } from '../shared/global-config/encapsulation'
 })
 export class CountryInfoComponent implements OnInit {
     
-    @Input("country") currentCountry:CountryBasic;
+  @Input("country") currentCountry:CountryBasic;
+  @Output() onSelectCountry:EventEmitter<CountryBasic>=new EventEmitter<CountryBasic>();
+  
+  constructor() { }
+    updateCountrySelection():void{
+      this.onSelectCountry.emit(this.currentCountry);
+      console.log(this.currentCountry);
+    }
 
-
-    constructor() { }
 
     ngOnInit() {
     }
