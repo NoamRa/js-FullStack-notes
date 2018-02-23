@@ -1,12 +1,12 @@
 import React from 'react';
 
-const header = (props) => {
+const head = (props) => {
     return (
         <div>
             <p>{props.title}</p>
-            <button>test</button>
+            <button>buttonnn</button>
         </div>
     );
 }
 
-export default header;
+export default head;
