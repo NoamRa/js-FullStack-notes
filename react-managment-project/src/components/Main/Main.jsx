@@ -10,7 +10,9 @@ class Main extends Component {
 
   render () {
     return(
-      <div>Main</div>
+      <main>
+        <div>Main</div>
+      </main>
     )
   }
 

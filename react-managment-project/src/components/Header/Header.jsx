@@ -2,10 +2,10 @@ import React from 'react';
 
 const head = (props) => {
     return (
-        <div>
+        <header>
             <p>{props.title}</p>
             <button>buttonnn</button>
-        </div>
+        </header>
     );
 }
 

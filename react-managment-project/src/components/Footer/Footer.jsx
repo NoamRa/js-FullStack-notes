@@ -2,9 +2,9 @@ import React from 'react';
 
 const Foot = (props) => {
     return (
-        <div>
+        <footer>
             not copy righted to someone...
-        </div>
+        </footer>
     );
 }
 
