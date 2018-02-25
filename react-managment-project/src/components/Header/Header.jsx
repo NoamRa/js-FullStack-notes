@@ -1,12 +1,16 @@
 import React from 'react';
+import { Button } from 'semantic-ui-react';
 
-const head = (props) => {
+
+const Head = (props) => {
     return (
         <header>
             <p>{props.title}</p>
-            <button>buttonnn</button>
+            <Button
+                content="Login"
+            />
         </header>
     );
 }
 
-export default head;
+export default Head;

@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 
 import { Provider } from 'react-redux';
+import store from './logic/store.js';
 
 import './index.css';
 
@@ -19,16 +20,18 @@ import registerServiceWorker from './registerServiceWorker';
 
 const Root = () => {
     return(
-        <Router>
-            <Switch>
-                <Route path="/" exact component={App} />
+        <Provider store={store}>
+            <Router>
+                <Switch>
+                    <Route path="/" exact component={App} />
 
 
-                {/* 404 not found */}
-                <Route component={NotFound} />
-                
-            </Switch>
-        </Router>
+                    {/* 404 not found */}
+                    <Route component={NotFound} />
+                    
+                </Switch>
+            </Router>
+        </Provider>
     )
 }
 
