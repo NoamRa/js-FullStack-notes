@@ -23,7 +23,7 @@ const Root = () => {
         <Provider store={store}>
             <Router>
                 <Switch>
-                    <Route path="/" exact component={App} />
+                    <Route exact path="/" component={App} />
 
 
                     {/* 404 not found */}
