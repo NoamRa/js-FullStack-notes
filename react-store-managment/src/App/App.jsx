@@ -7,6 +7,7 @@ import { alertActions } from '../_actions';
 import { HomePage } from '../HomePage';
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
+import { AccountManager } from '../AccountManager';
 
 class App extends Component {
     constructor(props) {
@@ -62,6 +63,7 @@ class App extends Component {
                                 <Route exact path="/" render={this.routHandler} />
                                 <Route path="/login" component={LoginPage} />
                                 <Route path="/register" component={RegisterPage} />
+                                <Route path="/account" component={AccountManager} />
                             </div>
                         </Router>
                     </div>
