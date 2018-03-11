@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import { Router, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import './App.css'
+
 import { history } from '../_helpers';
 import { alertActions } from '../_actions';
 import { HomePage } from '../HomePage';
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
 import { AccountManager } from '../AccountManager';
+
+import Header from '../Header/Header.jsx'
+import Footer from '../Footer/Footer.jsx'
+import MyStore from '../MyStore/MyStore.jsx'
 
 class App extends Component {
     constructor(props) {
@@ -20,10 +26,12 @@ class App extends Component {
             // clear alert on location change
             dispatch(alertActions.clear());
         });
+
+        this.state = {isLoggedIn: false};
     }
 
-    routHandler(x){
-        console.log("Route props as x", x);
+    routHandler(x) {
+        // console.log("Route props as x", x);
         return (
             localStorage.getItem('user')
                 ? <HomePage {...x} />
@@ -31,8 +39,14 @@ class App extends Component {
         )
     };
 
-    //to use the "Router" add run the follwing command in the cli:
-    //npm install --save react-router-dom
+    setIsLoggedIn = () => {
+      this.setState({ isLoggedIn : !!localStorage.getItem('user') })
+    }
+
+    componentDidMount() {
+      this.setIsLoggedIn();
+    }
+
     render() {
         const { alert } = this.props;
         return (
@@ -43,29 +57,23 @@ class App extends Component {
                             <div className={`alert ${alert.type}`}>{alert.message}</div>
 
                         }
-
-                        <Router history={console.log("history", history) || history}>
-                            <div>
-                                {
-                                    /*
-                                        Route -is a built in componrnt from 'react-router-dom'
-                                        -----------------------------------------------
-                                        Route gets as a props:       
-                                        location?: H.Location;
-                                        component?: React.ComponentType<RouteComponentProps<any>> | React.ComponentType<any>;
-                                        render?: ((props: RouteComponentProps<any>) => React.ReactNode);
-                                        children?: ((props: RouteComponentProps<any>) => React.ReactNode) | React.ReactNode;
-                                        path?: string;
-                                        exact?: boolean;
-                                        strict?: boolean;
-                                     */
-                                }
-                                <Route exact path="/" render={this.routHandler} />
-                                <Route path="/login" component={LoginPage} />
-                                <Route path="/register" component={RegisterPage} />
-                                <Route path="/account" component={AccountManager} />
-                            </div>
-                        </Router>
+                        <div className="page-header">
+                            <Header isLoggedIn={this.state.isLoggedIn}/>
+                        </div>
+                        <main>
+                          <Router history={console.log("history", history) || history}>
+                              <div>
+                                  <Route exact path="/" render={this.routHandler} />
+                                  <Route path="/login" component={LoginPage} />
+                                  <Route path="/register" component={RegisterPage} />
+                                  <Route path="/account" component={AccountManager} />
+                                  <Route path="/my-store" component={MyStore} />
+                              </div>
+                          </Router>
+                        </main>
+                        <div className="page-footer">
+                            <Footer/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -82,27 +90,5 @@ function mapStateToProps(state) {
     };
 }
 
-
-/**
- * 
- * -------------connect function----------------
- * Connects a React component to a Redux store.
- *
- * - Without arguments, just wraps the component, without changing the behavior / props
- *
- * - If 2 params are passed (3rd param, mergeProps, is skipped), default behavior
- * is to override ownProps (as stated in the docs), so what remains is everything that's
- * not a state or dispatch prop
- *
- * - When 3rd param is passed, we don't know if ownProps propagate and whether they
- * should be valid component props, because it depends on mergeProps implementation.
- * As such, it is the user's responsibility to extend ownProps interface from state or
- * dispatch props or both when applicable
- *
- * @param mapStateToProps
- * @param mapDispatchToProps
- * @param mergeProps
- * @param options
- */
 const connectedApp = connect(mapStateToProps)(App);
 export { connectedApp as App }; 

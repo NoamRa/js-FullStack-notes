@@ -1,0 +1,20 @@
+header {
+    height: 40px;
+    line-height: 100px;
+    border: 0 solid black;
+    font-family: 'Arial';
+}
+
+main {
+  min-height: 100%;
+  padding: 20px;
+  padding-bottom: 50px;
+  text-align: center;
+  font-family: 'Arial';
+}
+
+footer {
+  height: 50px;
+  margin-top: -50px;
+  font-family: 'Arial';
+}
