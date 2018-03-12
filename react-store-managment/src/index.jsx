@@ -7,12 +7,9 @@ import { App } from './App';
 
 // setup fake backend
 import { configureFakeBackend } from './_helpers';
+
 configureFakeBackend();
 
-
-/**
- * Provider - Makes the Redux store available to the connect() calls in the component hierarchy below.
- */
 render(
     <Provider store={store}>
         <App />
