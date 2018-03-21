@@ -2,12 +2,10 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-
 var app = express();
 
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json());
-
 
 
 var Product = mongoose.model("Product", {
@@ -19,12 +17,21 @@ mongoose.connect("mongodb://localhost:27017/test", function(err){
   console.log("Connected")
 });
 
-app.post("/products", function(request, response){
+
+
+// ===== CRUD =====
+app.get("api/products", function(req, res) {
+  Product.find({}, function(err, products) {
+    res.set('Content-Type', 'application/json');
+    res.send(products);
+  });
+})
+
+app.post("api/product", function(req, res){
   var product = new Product(request.body);
   product.save();
-
-  response.status(201);
-  response.send(product);
+  res.status(201);
+  res.send(product);
 })
 
 
