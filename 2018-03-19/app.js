@@ -20,14 +20,14 @@ mongoose.connect("mongodb://localhost:27017/test", function(err){
 
 
 // ===== CRUD =====
-app.get("api/products", function(req, res) {
+app.get("rest/products", function(req, res) {
   Product.find({}, function(err, products) {
     res.set('Content-Type', 'application/json');
     res.send(products);
   });
 })
 
-app.post("api/product", function(req, res){
+app.post("rest/product", function(req, res){
   var product = new Product(request.body);
   product.save();
   res.status(201);
