@@ -28,7 +28,7 @@ app.get("api/products", function(req, res) {
 })
 
 app.post("api/product", function(req, res){
-  var product = new Product(request.body);
+  var product = new Product(req.body);
   product.save();
   res.status(201);
   res.send(product);
@@ -36,9 +36,9 @@ app.post("api/product", function(req, res){
 
 
 
+const port = 3001;
 
 
-
-app.listen(3001, function(){
-
+app.listen(port, function(){
+    console.log(`listening on port ${port}`);
 })
