@@ -2,7 +2,7 @@ const { app } = require('./index.js');
 const { 
     Store, 
     validateNewStore, 
-    validateStoreValues } = require('./../models/store.model.js');
+    validateStoreValues } = require('./../models/storeInfo.model.js');
 
 
 dupAndRemove = (obj) => {
