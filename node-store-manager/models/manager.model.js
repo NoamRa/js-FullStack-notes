@@ -8,13 +8,13 @@ let Manager = mongoose.model("Manager", {
 }, "managers");
 
 
-function validateUserNameNotExists(userName) {
+function validateUserUserNotExists(userName) {
     //validate that this userName is not used in the DB
     return new Promise((resolve,reject)=>{
         Manager.count({ "userName": userName }, function (err, recordCount) {
             console.log(recordCount);
             if (recordCount) {
-                reject(`'${userName}' is allready used as a userName`);
+                reject(`'${userName}' is already used as a userName`);
             }
             else{
                 resolve(true);
@@ -52,7 +52,7 @@ function validatePassword(password, min=4, max=8) {
     throw new Error(`Invalid password`);
 }
 
-function validateMangerValues(manager) {
+function validateManagerValues(manager) {
     return validateStrLen(manager.userName)
             && validateStrLen(manager.firstName)
             && validateStrLen(manager.lastName)
@@ -60,15 +60,15 @@ function validateMangerValues(manager) {
 }
 
 function validateNewManager(manager) {
-    return validateUserNameNotExists(manager.userName)
-        .then((res) => res && validateMangerValues(manager))
+    return validateUserUserNotExists(manager.userName)
+        .then((res) => res && validateManagerValues(manager))
         .catch((err) => console.log(err.message));
 };
 
 
 module.exports = {
     Manager,
-    validateMangerValues,
+    validateManagerValues,
     validateNewManager
 }
 

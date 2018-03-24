@@ -2,7 +2,7 @@ const { app } = require('./index.js');
 const { 
     Manager, 
     validateNewManager, 
-    validateMangerValues } = require('./../models/manager.model.js');
+    validateManagerValues } = require('./../models/manager.model.js');
 
 
 dupAndRemove = (obj) => {
@@ -38,7 +38,7 @@ let init = () => {
     // Put manager:
     app.put("/api/manager/:userName/:password", function (req, res) {
         try {
-            validateMangerValues(req.body);
+            validateManagerValues(req.body);
         }
         catch (err) {
             res.status(400);
