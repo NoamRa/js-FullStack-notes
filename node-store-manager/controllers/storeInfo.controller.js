@@ -1,8 +1,8 @@
 const { app } = require('./index.js');
 const { 
-    Product, 
-    validateNewProduct, 
-    validateProductValues } = require('./../models/product.model.js');
+    Store, 
+    validateNewStore, 
+    validateStoreValues } = require('./../models/store.model.js');
 
 
 dupAndRemove = (obj) => {
@@ -13,9 +13,9 @@ dupAndRemove = (obj) => {
 }
 
 let init = () => {
-    // get a product: 
-    app.get("/api/product/:name", (req, res) => {
-        Product.findOne({
+    // get a store: 
+    app.get("/api/store/:name", (req, res) => {
+        Store.findOne({
             "name": req.params.name,
         }, function (err, record) {
             if (record) {
@@ -24,7 +24,7 @@ let init = () => {
             }
             else if (!record) {
                 res.status(400);
-                res.end(`No product '${req.params.name}'`);  
+                res.end(`No store '${req.params.name}'`);  
             }
             else {
                 res.status(500);
@@ -33,14 +33,14 @@ let init = () => {
         });
     });
 
-    // get all product: 
-    app.get("/api/products", (req, res) => {
-        Product.find({}, function (err, records) {
+    // get all store: 
+    app.get("/api/stores", (req, res) => {
+        Store.find({}, function (err, records) {
             // console.log(records)
             if (records) {
-                let allProducts = records.map((product) => dupAndRemove(product));
+                let allStores = records.map((store) => dupAndRemove(store));
                 res.status(200);
-                res.end(JSON.stringify(allProducts));
+                res.end(JSON.stringify(allStores));
             }
             else {
                 res.status(500);
@@ -50,21 +50,21 @@ let init = () => {
     });
 
 
-    // Add new product: 
-    app.post("/api/product", (req, res) => {
-        validateNewProduct(req.body)
+    // Add new store: 
+    app.post("/api/store", (req, res) => {
+        validateNewStore(req.body)
         .then((record) => {
             if (record) {
                 console.log(record)
-                let product = new Product(req.body);
-                product.save();
+                let store = new Store(req.body);
+                store.save();
                 // res.setHeader("Content-Type", "application/json");
                 res.status(201);
-                res.end(JSON.stringify(dupAndRemove(product)));
+                res.end(JSON.stringify(dupAndRemove(store)));
             }
             else if (!record){
                 res.status(400);
-                res.send(`product '${req.body.name}' already exists\n${JSON.stringify(req.body)}`);
+                res.send(`store '${req.body.name}' already exists\n${JSON.stringify(req.body)}`);
             }
             else {
                 res.status(500);
@@ -73,20 +73,20 @@ let init = () => {
         })
         .catch((err) => {
             res.status(400);
-            res.send(`Product data not complete\n${JSON.stringify(req.body)}\n${err}`);
+            res.send(`Store data not complete\n${JSON.stringify(req.body)}\n${err}`);
         });
     });
 
-    // update product:
-    app.put("/api/product/:name", function (req, res) {
+    // update store:
+    app.put("/api/store/:name", function (req, res) {
         try {
-            validateProductValues(req.body);
+            validateStoreValues(req.body);
         }
         catch (err) {
             res.status(400);
             res.send(err + "\n" + JSON.stringify(req.body));
         }
-        Product.findOne({
+        Store.findOne({
             "name": req.params.name,
         }, function (err, record) {
             if (record) {
@@ -100,7 +100,7 @@ let init = () => {
             }
             else if (!record) {
                 res.status(400);
-                res.end(`No product '${req.params.name}'`);  
+                res.end(`No store '${req.params.name}'`);  
             }
             else {
                 res.status(500);
@@ -109,9 +109,9 @@ let init = () => {
         });
     });
 
-    // delete a Product:
-    app.delete("/api/product/:name", function (req, res) {
-        Product.findOne({
+    // delete a Store:
+    app.delete("/api/store/:name", function (req, res) {
+        Store.findOne({
             "name": req.params.name,
         }, function (err, record) {
             if (record) {
@@ -123,7 +123,7 @@ let init = () => {
             }
             else if (!record) {
                 res.status(400);
-                res.end(`No product '${req.params.name}'`);  
+                res.end(`No store '${req.params.name}'`);  
             }
             else {
                 res.status(500);
