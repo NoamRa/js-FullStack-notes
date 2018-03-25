@@ -36,9 +36,9 @@ app.post("rest/product", function(req, res){
 
 
 
+const port = 3001;
 
 
-
-app.listen(3001, function(){
-
+app.listen(port, function(){
+    console.log(`listening on port ${port}`);
 })
