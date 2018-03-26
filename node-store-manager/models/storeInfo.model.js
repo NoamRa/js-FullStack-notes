@@ -37,9 +37,9 @@ function validateStrLen(str, min=3, max=8) {
 }
 
 function validateStoreValues(store) {
-    return validateStrLen(store.name)
-            && validateStrLen(store.address)
-            && validateStrLen(store.description)
+    return validateStrLen(store.name,3,20)
+            && validateStrLen(store.address,3,50)
+            && validateStrLen(store.description,0,50)
 }
 
 function validateNewStore(store) {
